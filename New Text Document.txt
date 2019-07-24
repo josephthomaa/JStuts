@@ -1,0 +1,75 @@
+A (Host) What's this?
+host record	points to	ttl	action
+@	192.163.218.177	14400	edit delete
+localhost	127.0.0.1	14400	edit delete
+ftp	192.163.218.177	14400	edit delete
+cpanel	192.163.218.177	14400	edit delete
+webdisk	192.163.218.177	14400	edit delete
+whm	192.163.218.177	14400	edit delete
+webmail	192.163.218.177	14400	edit delete
+mail	192.163.218.177	14400	edit delete
+autoconfig	192.163.218.177	14400	edit delete
+server	162.144.80.200	14400	edit delete
+ns1	192.163.218.177	14400	edit delete
+ns2	192.163.218.177	14400	
+
+
+
+CNAME (Alias) What's this?
+host record	points to	ttl	action
+www	royalhospitality.net	14400	edit delete
+imap	mail.royalhospitality.net	14400	edit delete
+pop	mail.royalhospitality.net	14400	edit delete
+smtp	mail.royalhospitality.net	14400	edit delete
+autodiscover	autodiscover.outlook.com	14400	edit delete
+msoid	clientconfig.microsoftonline-p.net	14400	edit delete
+enterpriseenrollment	enterpriseenrollment.manage.microsoft.com	14400	edit delete
+enterpriseregistration	enterpriseregistration.windows.net	14400	edit delete
+sip	sipdir.online.lync.com	14400	edit delete
+lyncdiscover	webdir.online.lync.com	14400
+
+
+MX (Mail Exchanger) What's this?
+Email Routing: Automatically Detect Configuration: Remote  more »
+priority	host record	points to	ttl	action
+10	@	royalhospitality-net.mail.protection.outlook.com	14400
+
+TXT (Text) What's this?
+host record	txt value	ttl	action
+@	v=spf1 a mx ptr include:justhost.com ip4:162.144.80.200 ?all	14400	edit delete
+@	v=spf1 include:spf.protection.outlook.com -all	14400	edit delete
+@
+
+SRV (Service) What's this?
+service	protocol	host	priority	weight	port	target	ttl	action
+_autodiscover	_tcp		0	0	443	autodiscover.justhost.com	14400	edit delete
+_sipfederationtls	_tcp		100	1	5061	sipfed.online.lync.com	14400	edit delete
+_sip	_tls		100	1	443	sipdir.online.lync.com	14400
+
+
+
+	
+Host Record:	
+TTL:	
+14400
+Type:	 What's this?	
+Points To:
+
+
+ns1.justhost.com  162.159.24.49
+ns2.justhost.com  162.159.25.241
+
+Email:
+accounts
+dipu
+enquiry
+lijo
+lince
+operations
+projects
+sajjad
+sales
+sbacker
+siva
+store
+support@royalhospitality.net

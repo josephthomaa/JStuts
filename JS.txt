@@ -1,0 +1,29 @@
+Variables
+	Variables are containers that you can store values in. You start by declaring a variable with the var keyword, followed by any name you want to call it
+	eg: var myVariable = 'Bob';
+	Basically, anything. Everything in JavaScript is an object, and can be stored in a variable.
+	var myVariable = document.querySelector('h1');
+	
+	//changing color of myVariable
+	myVariable.style.backgroundColor = 'white';
+	var myVariable = [1,'Bob','Steve',10];
+	
+	Note: JavaScript is case sensitive — myVariable is a different variable to myvariable. If you are getting problems in your code, check the casing!
+	
+Events:
+	These are code structures which listen for things happening in browser, running code in response. The most obvious example is the click event
+	https://developer.mozilla.org/en-US/docs/Web/Events
+	eg:document.querySelector('html').onclick = function() {
+    alert('Ouch! Stop poking me!');
+	}	
+Operators
+	Equality: 	Does a test to see if two values are equal to one another and returns a true/false (Boolean) result.(===)
+	Not, Does-not-equal : !, !==
+
+Document.querySelector()
+	The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned.
+	eg: var myHeading = document.querySelector('h1');
+	Selectors can also be really powerful, as demonstrated in the following example. Here, the first <input> element with the name "login" (<input name="login"/>) located inside a <div> whose class is "user-panel main" (<div class="user-panel main">) in the document is returned:
+	var el = document.querySelector("div.user-panel.main input[name='login']");
+	
+	
