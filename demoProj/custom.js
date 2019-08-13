@@ -1,3 +1,15 @@
+/*(function(){
+    alert("fetch");
+    fetch('https://gist.githubusercontent.com/aravindet/5cf7e238b5115e36841baf01fd33e8f1/raw/fd14d4e000a74eba17a9ae7b10e0721a68a7e0ce/mrt.json')
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(myJson) {
+        console.log((myJson.stations));
+    });
+    
+})();*/
+
 $(document).ready(function(){
     var lineRoutes={
         name:[],
