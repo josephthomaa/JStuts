@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Test</title>
+  
+  <link rel="stylesheet" href="http://localhost/pos/css/bootstrap.css">
+		<script src="http://localhost/pos/js/jquery.min.js"></script>
+
+		<script type="text/javascript" src="http://localhost/pos/js/jquery.dataTables.js"></script>
+		<link rel="stylesheet" href="http://localhost/pos/css/multiple-select.css">
+</head>
+
+<body>
+  <div class="contain-to-grid">
+   <table id="ArgumentsTable" class="table table-striped table-bordered dataTable"></table>
+  </div>
+
+</body>
+<script>
+
+	(function ($) {
+  var dataArguments = [
+		{
+			"id": 1,
+			"name": "Param1",
+			"description": "Desc1",
+			"order": 1
+		},
+		{
+			"name": "Param2",
+			"id": 2,
+			"description": "Desc2",
+			"order": 2
+		},
+		{
+			"id": 3,
+			"name": "Param3",
+			"description": "Desc3",
+			"order": 3
+		}
+	];
+  
+  	var table = $('#ArgumentsTable').DataTable({
+		paging: false,
+		data: dataArguments,
+		columns: [
+			{
+				name: 'order',
+				title: 'Order',
+				data: 'order',
+				sortable: false
+			},
+			{
+				name: 'id',
+				data: 'id',
+				visible: false
+			},
+			{
+				name: 'order',
+				data: 'order',
+				visible: false
+			},
+			{
+				name: 'name',
+				data: 'name',
+				title: 'Name',
+				searchable: true,
+				sortable: false
+			},
+			{
+				name: 'description',
+				data: 'description',
+				title: 'Description',
+				searchable: true,
+				sortable: false
+			},
+			{
+				name: 'action',
+				data: null,
+				title: 'Action',
+				searchable: false,
+				sortable: false,
+				render: function (data, type, full, meta) {
+					if (type === 'display') {
+						var $span = $('<span></span>');
+
+						$('<button class="btn " id="btn3" ">Save</button>').appendTo($span);
+						
+
+						
+						
+						return $span.html();
+					}
+					return data;
+				}
+			}
+		],
+		'drawCallback': function (settings) {
+			//$('#ArgumentsTable tr:last .btn').remove();
+
+			// Remove previous binding before adding it
+			$('.btn').unbind('click');
+			
+			// Bind clicks to functions
+			$('.btn').click(moveUp);
+			
+		}
+	});
+
+	// Move the row up
+	function moveUp() {
+		var tr = $(this).parents('tr');
+		moveRow(tr, 'up');
+	}
+
+	
+
+  // Move up or down (depending...)
+  function moveRow(row, direction) {
+	
+    var index = table.row(row).index();
+	alert(index)
+	var order = -1;
+	for (i = index; i>0; i--){
+		var data1 = table.row(i).data();
+		console.log(data1);
+		data1.order += order;
+		console.log(data1);
+		var data2 = table.row(i + order).data();
+		data2.order += -order;
+
+		table.row(i).data(data2);
+		table.row(i + order).data(data1);
+
+		table.page(0).draw(false);
+	}
+    
+    
+	
+	}
+})(jQuery);
+</script>
+
+</html>
