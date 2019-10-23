@@ -5,10 +5,10 @@
   <title>Test</title>
   
   <link rel="stylesheet" href="http://localhost/pos/css/bootstrap.css">
-		<script src="http://localhost/pos/js/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
-		<script type="text/javascript" src="http://localhost/pos/js/jquery.dataTables.js"></script>
-		<link rel="stylesheet" href="http://localhost/pos/css/multiple-select.css">
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="http://localhost/pos/css/multiple-select.css">
 </head>
 
 <body>
@@ -38,11 +38,29 @@
 			"name": "Param3",
 			"description": "Desc3",
 			"order": 3
+		},
+		{
+			"id": 4,
+			"name": "Param4",
+			"description": "Desc4",
+			"order": 4
+		},
+		{
+			"id": 5,
+			"name": "Param5",
+			"description": "Desc5",
+			"order": 5
+		},
+		{
+			"id":6,
+			"name": "Param6",
+			"description": "<input type = 'text'>",
+			"order": 6
 		}
 	];
-  
+	i =0;	
   	var table = $('#ArgumentsTable').DataTable({
-		paging: false,
+		paging: true,
 		data: dataArguments,
 		columns: [
 			{

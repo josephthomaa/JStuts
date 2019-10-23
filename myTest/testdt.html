@@ -5,14 +5,27 @@
   <title>Test</title>
   
   <link rel="stylesheet" href="http://localhost/pos/css/bootstrap.css">
-		<script src="http://localhost/pos/js/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
-		<script type="text/javascript" src="http://localhost/pos/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 		<link rel="stylesheet" href="http://localhost/pos/css/multiple-select.css">
 </head>
 
 <body>
+		<table id="ArgumentsTable2" class="table-striped">
+
+				<thead>
+					<tr role="row"><th >Name2</th><th >Position2</th><th >Office2</th><th >Age2</th><th>Start date2</th><th >Salary2</th></tr>
+				</thead>
+				<tbody>
+					
+			</tbody>
+		
+			</table>
+
   <div class="contain-to-grid">
+		
+		</br></br>
     <table id="ArgumentsTable" class="table table-striped table-bordered dataTable">
 
 					<thead>
@@ -44,7 +57,7 @@
 							<td>$86,000</td>
 						</tr><tr role="row" class="even">
 							<td class="sorting_1">Bradley Greer</td>
-							<td>Software <button class="btn " id="btn4"  >Save</button>	</td>
+							<td>Software <button class="btn " id="btn4" onclick="moveUp()" >Save</button>	</td>
 							<td>London</td>
 							<td>41</td>
 							<td>2012/10/13</td>
@@ -56,15 +69,19 @@
 
 </body>
 <script>
-
+	function moveUp() {
+		$('#btn4').parents('tr').prependTo("#ArgumentsTable2");
+		//$(this).closest('tr').prependTo("#ArgumentsTable");
+	}
 	(function ($) {
   
   
  var table = $('#ArgumentsTable').DataTable(
     	{
         stateSave: true,
+		//stateDuration:-1
 		
-	'drawCallback': function (settings) {
+	/*'drawCallback': function (settings) {
 			//$('#ArgumentsTable tr:last .btn').remove();
 
 			// Remove previous binding before adding it
@@ -73,13 +90,13 @@
 			// Bind clicks to functions
 			$('.btn').click(moveUp);
 			
-		}
+		}*/
     });
 
 	// Move the row up
 	function moveUp() {
-		var tr = $(this).parents('tr');
-		moveRow(tr, 'up');
+		$(this).parents('tr').prependTo("#ArgumentsTable2");
+		//$(this).closest('tr').prependTo("#ArgumentsTable");
 	}
 
 	
