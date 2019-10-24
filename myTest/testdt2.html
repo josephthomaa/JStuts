@@ -62,12 +62,14 @@
   	var table = $('#ArgumentsTable').DataTable({
 		paging: true,
 		data: dataArguments,
+		stateSave: true,
+		"aaSorting": [[ 1, "asc" ]],
 		columns: [
 			{
 				name: 'order',
 				title: 'Order',
 				data: 'order',
-				sortable: false
+				sortable: true
 			},
 			{
 				name: 'id',
@@ -98,7 +100,7 @@
 				data: null,
 				title: 'Action',
 				searchable: false,
-				sortable: false,
+        		
 				render: function (data, type, full, meta) {
 					if (type === 'display') {
 						var $span = $('<span></span>');
@@ -139,20 +141,14 @@
 	
     var index = table.row(row).index();
 	alert(index)
-	var order = -1;
-	for (i = index; i>0; i--){
-		var data1 = table.row(i).data();
+	var data1 = table.row(index).data();
+	console.log(data1);
+	data1.id = -data1.id;
+	table
+        .row(index)
+        .data(data1)
+        .draw();
 		console.log(data1);
-		data1.order += order;
-		console.log(data1);
-		var data2 = table.row(i + order).data();
-		data2.order += -order;
-
-		table.row(i).data(data2);
-		table.row(i + order).data(data1);
-
-		table.page(0).draw(false);
-	}
     
     
 	
