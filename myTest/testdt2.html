@@ -54,7 +54,7 @@
 		{
 			"id":6,
 			"name": "Param6",
-			"description": "<input type = 'text'>",
+			"description": "<input type = 'text' id='textInp' value = '' />",
 			"order": 6
 		}
 	];
@@ -139,19 +139,13 @@
   // Move up or down (depending...)
   function moveRow(row, direction) {
 	
-    var index = table.row(row).index();
-	alert(index)
-	var data1 = table.row(index).data();
-	console.log(data1);
-	data1.id = -data1.id;
-	table
-        .row(index)
-        .data(data1)
-        .draw();
+    	var index = table.row(row).index();
+		alert(index)
+		var data1 = table.row(index).data();
 		console.log(data1);
-    
-    
-	
+		data1.id = -data1.id;
+		table.row(index).data(data1).draw();
+		console.log(data1);
 	}
 })(jQuery);
 </script>
